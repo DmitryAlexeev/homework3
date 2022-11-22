@@ -91,15 +91,49 @@ a {
     border: none;
     font-weight: bold;
     cursor: pointer;
+    transition: .5s ease;
 }
 
+
 .button:hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 1e-05) 100%), #1629d8;
-    background-blend-mode: overlay, normal;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: 0.5s;
+    border: 2px solid #799be6;
+    box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6;
 }
+
+.main {
+    background-color: #F3C6BD;
+    position: relative;
+    padding-bottom: 126px;
+}
+
+.main__container > div:first-of-type{
+    z-index: 1;
+}
+
+.main__container > div:last-of-type{
+    z-index: 0;
+    position: absolute;
+    right: 25px;
+}
+
+.main__title {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 78px;
+    letter-spacing: -0.5px;
+    max-width: 754px;
+    margin-bottom: 34px;
+}
+
+.main__text{
+    font-size: 24px;
+    line-height: 34px;
+    max-width: 456px;
+    margin-bottom: 54px;
+}
+
+
+
 
 .description__title {
     font-weight: 700;
@@ -210,34 +244,21 @@ a {
     padding-bottom: 110px;
 }
 
-.engage__get {
-    width: 160px;
-    height: 48px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 1e-05) 100%), #3040C4;
-    background-blend-mode: overlay, normal;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    border: none;
-    font-size: 18px;
-    line-height: 13px;
-    color: #FFFFFF;
-}
 
 .engage__learn {
-    width: 160px;
+    padding: 12px;
+    width: 190px;
     height: 48px;
-    background: #fff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    border: none;
-    font-size: 18px;
-    line-height: 13px;
-    color: #000000;
     cursor: pointer;
+    background: #fff;
+    color: black;
+    transition: .5s ease;
+    border: none;
 }
 
 .engage__learn:hover {
-    background-color: #fcfafa;
+    border: 2px solid #799be6;
+    box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6;
 }
 
 .engage__li {
@@ -406,7 +427,107 @@ a {
     margin-top: 105px;
 }
 
+.free {
+    background-color: #F4F5F7;
+}
 
+.free__img {
+    margin: 72px 73px;
+}
+
+.free__title {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    letter-spacing: -0.25px;
+    color: #2B292D;
+    margin-bottom: 12px;
+    height: 48px;
+}
+
+.free__text {
+    max-width: 555px;
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 26px;
+}
+
+.free__input {
+    width: 385px;
+    height: 48px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    padding: 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(43, 41, 45, 0.2);
+    border-radius: 2px;
+    padding: 17px 0 18px 15px;
+    font-size: 18px;
+    line-height: 13px;
+}
+
+.flex__form {
+    display: flex;
+}
+
+.form {
+    margin-bottom: 10px;
+}
+
+.label__text {
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(43, 41, 45, 0.6);
+}
+
+.fake {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
+
+.fake::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 2px;
+    background-color: #0185D0;
+    left: 30%;
+    top: 70%;
+    opacity: 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.fake::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background-color: #0185D0;
+    left: 64%;
+    top: 30%;
+    opacity: 0;
+    transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+
+.checkbox:checked~.fake::before,
+.checkbox:checked~.fake::after {
+    opacity: 1;
+    transition: 1s;
+}
+
+.checkbox {
+    opacity: 0;
+}
+
+.free__label {
+    cursor: pointer;
+}
 
 @media screen and (max-width: 1090px) {
 
@@ -445,6 +566,16 @@ a {
         margin: 0 auto 41px;
         font-size: 20px;
         line-height: 26px;
+    }
+
+    .main__container{
+        flex-direction: column;
+    }
+
+    .main__container > div:last-of-type{
+        z-index: 0;
+        position: static;
+        right: 25px;
     }
 
     .inbox__response {
